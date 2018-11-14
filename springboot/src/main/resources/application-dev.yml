@@ -12,14 +12,3 @@ management:
     web:
       exposure:
         include: '*'
-
-spring:
-  boot.admin.client.url: http://localhost:10000
-  ###############################################################################################
-  #                                      Devtools                                               #
-  ###############################################################################################
-  devtools:
-    restart:
-      enabled: true     # true is default
-    livereload:
-      enabled: true     # true is default
