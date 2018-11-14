@@ -1,8 +1,16 @@
-# Spring Boot with Minio as storage sample 
+# Spring Boot with Minio as storage
+
+This projects is intended as a sample for Spring Boot with a S3 as file storage.
+The main purpose is to show the compatibility of Spring Boot with the Minio Object Storage.
+Different    
 
 **Work in progress**
 
 # Build
+
+```bash
+./gradlew test
+```
 
 # Start
 
