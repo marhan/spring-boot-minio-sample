@@ -6,13 +6,15 @@ jdk:
 os:
   - linux
 
+before_script:
+  - cd springboot
+
 before_install:
-  - chmod +x springboot/gradlew
+  - chmod +x gradlew
 
 cache:
   directories:
     - $HOME/.gradle
 
 script:
-  - cd springboot
-  - .gradlew clean test -Penvironment=dev
+  - ./gradlew clean test
