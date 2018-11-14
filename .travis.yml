@@ -7,7 +7,7 @@ os:
   - linux
 
 before_install:
-  - chmod +x gradlew
+  - chmod +x springboot/gradlew
 
 cache:
   directories:
