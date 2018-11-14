@@ -1,0 +1,73 @@
+buildscript {
+	ext {
+		springBootVersion = '2.1.0.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+plugins {
+	id 'net.ltgt.apt' version '0.10'
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'de.markushanses.sample'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 10
+
+repositories {
+	mavenCentral()
+}
+
+configurations {
+	developmentOnly
+	runtimeClasspath {
+		extendsFrom developmentOnly
+	}
+}
+
+ext {
+	springBootVersion = '2.1.0.RELEASE'
+}
+
+dependencies {
+	implementation("org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}")
+	implementation("org.springframework.boot:spring-boot-starter-amqp:${springBootVersion}")
+	implementation("org.springframework.boot:spring-boot-starter-data-rest:${springBootVersion}")
+	implementation("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+	implementation("org.springframework.boot:spring-boot-starter-cloud-connectors:${springBootVersion}")
+
+	// Monitoring
+	implementation("de.codecentric:spring-boot-admin-starter-client:2.0.4")
+
+	// Amazon Client
+	implementation 'com.amazonaws:aws-java-sdk-s3:1.11.433'
+	// Amazon Client
+	implementation 'io.minio:minio:5.0.1'
+	// dev tools
+	developmentOnly("org.springframework.boot:spring-boot-devtools:${springBootVersion}")
+	// configuration improvement
+	compileOnly("org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}")
+	// lombok
+	compileOnly 'org.projectlombok:lombok:1.18.2'
+	apt 'org.projectlombok:lombok:1.18.2'
+	// Test framework
+	testImplementation('org.junit.jupiter:junit-jupiter-api:5.2.0')
+	testCompile('org.junit.jupiter:junit-jupiter-params:5.2.0')
+	testRuntime('org.junit.jupiter:junit-jupiter-engine:5.2.0')
+	// Mock framework
+	testCompile("org.mockito:mockito-core:2.+")
+	testCompile('org.mockito:mockito-junit-jupiter:2.18.3')
+	// Test - Spring-Boot
+	testImplementation("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+}
+
+

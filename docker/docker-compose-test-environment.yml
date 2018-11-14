@@ -2,22 +2,20 @@ version: '3'
 
 services:
 
-  rabbitmq-springboot_transformer-test:
-    image: "rabbitmq:3-management"
+  minio:
+    image: "minio/minio"
     environment:
-      RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
-      RABBITMQ_DEFAULT_USER: "rabbitmq"
-      RABBITMQ_DEFAULT_PASS: "rabbitmq"
-      RABBITMQ_DEFAULT_VHOST: "/"
+      MINIO_ACCESS_KEY: 8JSB0V0DMKSVMH1AT0ON
+      MINIO_SECRET_KEY: UJuDxruBKDjYKyUPkpIFUgAS9EDlOyH5B4IueJKd
     ports:
-      - "15672:15672"
-      - "5672:5672"
+    - "9001:9000"
     volumes:
-      - "./rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins"
+    - ./volumes/minio-data:/export
+    command: minio server /export
     networks:
-      - springboot_transformer
+    - springboot
 
 networks:
 
-  springboot_transformer:
+  springboot:
     driver: bridge
