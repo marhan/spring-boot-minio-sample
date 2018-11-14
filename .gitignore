@@ -1,3 +1,9 @@
+# IDE
+.idea
+
+# Build tool
+.gradle
+
 # Compiled class file
 *.class
 
