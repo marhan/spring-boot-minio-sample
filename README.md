@@ -1,8 +1,8 @@
 # Spring Boot with Minio as storage [![Build Status](https://travis-ci.org/marhan/spring-boot-minio-sample.svg?branch=master)](https://travis-ci.org/marhan/spring-boot-minio-sample)
 
 This projects is intended as a sample for Spring Boot with a S3 as file storage.
-The main purpose is to show the compatibility of Spring Boot with the Minio Object Storage.
-Different    
+The main purpose is to show the compatibility of Spring Boot with the Minio object storage.
+Both, the AWS S3 client and the minio client will be used to interact with the storage. 
 
 **Work in progress**
 
